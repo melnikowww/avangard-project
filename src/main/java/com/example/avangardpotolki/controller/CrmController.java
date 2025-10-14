@@ -21,13 +21,11 @@ public class CrmController {
 
     @PostMapping("/new_contact_roof")
     public ResponseEntity<String> newContactRoof(@RequestBody ContactRoof contact) {
-        log.info("Got new contact roof: {}", contact.toString());
         return crmService.addNewContactRoof(contact);
     }
 
     @PostMapping("/new_contact")
     public ResponseEntity<String> newContact(@RequestBody Contact contact) {
-        log.info("Got new contact: {}", contact.toString());
         return crmService.addNewContact(contact);
     }
 

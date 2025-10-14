@@ -13,7 +13,7 @@ public class StaticController {
     }
 
     @GetMapping(path="/ceiling")
-    public String potolkiPage() {
+    public String roofPage() {
         return "forward:/potolki/index.html";
     }
 }
