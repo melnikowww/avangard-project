@@ -1,5 +1,6 @@
 package com.example.avangardpotolki.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -9,13 +10,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
-import org.springframework.web.filter.OncePerRequestFilter;
 
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.util.Arrays;
 import java.util.List;
 
+@Slf4j
 @Configuration
 public class CorsConfig {
 
@@ -28,6 +26,8 @@ public class CorsConfig {
     @Bean
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
+
+        log.info(List.of(publicDomain).toString());
 
         config.setAllowedOrigins(List.of(publicDomain));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
