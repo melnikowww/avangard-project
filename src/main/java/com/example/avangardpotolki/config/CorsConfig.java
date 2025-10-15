@@ -17,27 +17,27 @@ import java.util.List;
 @Configuration
 public class CorsConfig {
 
-    private final String publicDomain;
-
-    public CorsConfig(@Value("${secrets.public-domain}") String domain) {
-        this.publicDomain = domain;
-    }
-
-    @Bean
-    public CorsFilter corsFilter() {
-        CorsConfiguration config = new CorsConfiguration();
-
-        log.info(List.of(publicDomain).toString());
-
-        config.setAllowedOrigins(List.of(publicDomain));
-        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        config.setAllowedHeaders(List.of("Authorization", "Content-Type", "X-Requested-With", "Accept"));
-        config.setAllowCredentials(true);
-        config.setMaxAge(3600L);
-
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", config);
-
-        return new CorsFilter(source);
-    }
+    // private final String publicDomain;
+    //
+    // public CorsConfig(@Value("${secrets.public-domain}") String domain) {
+    //     this.publicDomain = domain;
+    // }
+    //
+    // @Bean
+    // public CorsFilter corsFilter() {
+    //     CorsConfiguration config = new CorsConfiguration();
+    //
+    //     log.info(List.of(publicDomain).toString());
+    //
+    //     config.setAllowedOrigins(List.of(publicDomain));
+    //     config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+    //     config.setAllowedHeaders(List.of("Authorization", "Content-Type", "X-Requested-With", "Accept"));
+    //     config.setAllowCredentials(true);
+    //     config.setMaxAge(3600L);
+    //
+    //     UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+    //     source.registerCorsConfiguration("/**", config);
+    //
+    //     return new CorsFilter(source);
+    // }
 }
