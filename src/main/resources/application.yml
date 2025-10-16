@@ -2,7 +2,7 @@ spring:
   application:
     name: avangard-project
 secrets:
-  webhook-url-roof: ${WEBHOOK_URL_ROOF:https://h.albato.ru/wh/38/1lf99es/4wL-Q46qx6FHVbegXnb3eT3u7rc3Z4WMqkWD1nSl83g/}
-  webhook-url: ${WEBHOOK_URL:https://h.albato.ru/wh/38/1lf99es/9DCXL9fMEKJ1qOLPQwpZhLeRb7BnmX2ZsbRb5FXwn4Q/}
+  webhook-url-roof: ${WEBHOOK_URL_ROOF:}
+  webhook-url: ${WEBHOOK_URL:}
   public-domain: ${DOMAIN:http://localhost1:8080}
 
