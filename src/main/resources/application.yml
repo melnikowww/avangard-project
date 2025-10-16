@@ -4,5 +4,4 @@ spring:
 secrets:
   webhook-url-roof: ${WEBHOOK_URL_ROOF:}
   webhook-url: ${WEBHOOK_URL:}
-  public-domain: ${DOMAIN:http://localhost1:8080}
 
