@@ -386,7 +386,7 @@ function App() {
       pdfPath: '/pdfs/torgovo.pdf'
     },
     { 
-      title: 'Для шкофов купе', 
+      title: 'Для шкафов купе', 
       description: 'Каркасы и направляющие для сборки встроенных и корпусных шкафов-купе.',
       color: 'from-gray-600 to-slate-500',
       image: catalogImages.shkafi,
@@ -439,7 +439,7 @@ function App() {
 
   const services = [
     { 
-      title: 'Переработка', 
+      title: 'Переработки', 
       description: 'Превращаем алюминиевый лом в высококачественное сырье с использованием передовых технологий', 
       icon: Recycle,
       features: ['Экологичный процесс', 'Высокая степень очистки', 'Контроль качества']
