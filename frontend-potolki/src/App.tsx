@@ -107,7 +107,7 @@ function App() {
             <p className="text-gray-300 text-lg max-w-2xl mx-auto">
               Изучите наш профиль в деталях. Используйте мышь для вращения и масштабирования модели
             </p>
-          </div>'react-router-dom'
+          </div>
 
           {/* 3D Viewer Container */}
           <div className="max-w-6xl mx-auto">
