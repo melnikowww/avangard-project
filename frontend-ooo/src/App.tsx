@@ -101,7 +101,7 @@ const catalogImages = {
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
-  const [activeSection, setActiveSection] = useState('главная');
+  // const [activeSection, setActiveSection] = useState('главная');
   const [activeCatalogItem, setActiveCatalogItem] = useState(0);
   const [formData, setFormData] = useState({
     name: '',
@@ -386,7 +386,7 @@ function App() {
       pdfPath: '/pdfs/torgovo.pdf'
     },
     { 
-      title: 'Для шкофов купе', 
+      title: 'Для шкафов купе',
       description: 'Каркасы и направляющие для сборки встроенных и корпусных шкафов-купе.',
       color: 'from-gray-600 to-slate-500',
       image: catalogImages.shkafi,
@@ -525,12 +525,6 @@ function App() {
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-sky-500 to-blue-600 group-hover:w-full transition-all duration-300"></span>
                 </a>
               ))}
-              <button>
-                <a href={"/ceiling"}
-                >
-                  Потолки
-                </a>
-              </button>
             </nav>
 
             <button
@@ -592,7 +586,12 @@ function App() {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-              <button className="group relative overflow-hidden bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-700/20">
+              <button className="group relative overflow-hidden bg-gradient-to-r from-sky-600 to-blue-700
+              hover:from-sky-500 hover:to-blue-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg
+              transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-700/20"
+                      onClick={() => document
+                          .getElementById("каталог")?.scrollIntoView({behavior: "smooth"})}
+              >
                 <span className="relative z-10 flex items-center space-x-2">
                   <span>Посмотреть каталог</span>
                   <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -692,13 +691,19 @@ function App() {
                   </div>
                 </div>
                 
-                <button className="group relative overflow-hidden bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-700/20">
+                <a href={"/ceiling"}>
+                  <button className="group relative overflow-hidden bg-gradient-to-r from-sky-600 to-blue-700
+                hover:from-sky-500 hover:to-blue-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg
+                transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-700/20"
+                  >
                   <span className="relative z-10 flex items-center space-x-2">
                     <span>Перейти к продукту</span>
                     <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </button>
+                    <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </button>
+                </a>
+
               </div>
             </div>
             
@@ -727,36 +732,45 @@ function App() {
             </p>
           </div>
           
-          <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-3xl flex flex-col lg:flex-row gap-0">
+          <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50
+          rounded-3xl flex flex-col lg:flex-row gap-0 overflow-x-hidden">
             {/* Левая навигация */}
             <div className="lg:w-1/3 space-y-0 h-[586px] overflow-y-auto pr-2 scrollbar-thin">
               {catalogItems.map((item, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveCatalogItem(index)}
-                  className={`w-full text-left p-6 transition-all duration-300 group ${
-                    index < catalogItems.length - 1 ? 'border-b border-gray-700/50' : ''
-                  } ${
-                    index === activeCatalogItem
-                      ? 'bg-gradient-to-r from-sky-600/20 to-blue-700/20 text-white shadow-lg shadow-blue-700/20'
-                      : 'bg-transparent hover:bg-gray-700/50 text-gray-300 hover:text-white'
-                  }`}
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="flex-1">
-                      <h3 className={`font-bold text-lg mb-2 transition-colors duration-300 ${
-                        index === activeCatalogItem ? 'text-sky-400' : 'group-hover:text-sky-500'
-                      }`}>
-                        {item.title}
-                      </h3>
+                  <button
+                      key={index}
+                      onClick={() => setActiveCatalogItem(index)}
+                      className={`w-full text-left p-6 transition-all duration-300 group ${
+                          index < catalogItems.length - 1 ? 'border-b border-gray-700/50' : ''
+                      } ${
+                          index === activeCatalogItem
+                              ? 'bg-gradient-to-r from-sky-600/20 to-blue-700/20 text-white shadow-lg shadow-blue-700/20'
+                              : 'bg-transparent hover:bg-gray-700/50 text-gray-300 hover:text-white'
+                      } ${
+                          index === 0 ? 'rounded-tl-3xl' : ''
+                      } ${
+                          index === catalogItems.length - 1 ? 'rounded-bl-3xl' : ''
+                      }`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex-1">
+                        <h3
+                            className={`font-bold text-lg mb-2 transition-colors duration-300 ${
+                                index === activeCatalogItem ? 'text-sky-400' : 'group-hover:text-sky-500'
+                            }`}
+                        >
+                          {item.title}
+                        </h3>
+                      </div>
+                      <ChevronRight
+                          className={`h-5 w-5 transition-all duration-300 ${
+                              index === activeCatalogItem
+                                  ? 'text-sky-500 translate-x-1'
+                                  : 'text-gray-500 group-hover:text-sky-500 group-hover:translate-x-1'
+                          }`}
+                      />
                     </div>
-                    <ChevronRight className={`h-5 w-5 transition-all duration-300 ${
-                      index === activeCatalogItem 
-                        ? 'text-sky-500 translate-x-1' 
-                        : 'text-gray-500 group-hover:text-sky-500 group-hover:translate-x-1'
-                    }`} />
-                  </div>
-                </button>
+                  </button>
               ))}
             </div>
 
@@ -824,7 +838,10 @@ function App() {
                     <button className="group relative overflow-hidden border-2 border-gray-600 hover:border-sky-500 text-white px-6 py-3 rounded-xl font-semibold text-base transition-all duration-300 hover:bg-sky-500/10 backdrop-blur-sm">
                       <span className="flex items-center space-x-2">
                         <Phone className="h-4 w-4" />
-                        <span>Получить консультацию</span>
+                        <span onClick={() => document
+                            .getElementById('обратная-связь')?.scrollIntoView({ behavior: 'smooth' })}>
+                          Получить консультацию
+                        </span>
                       </span>
                     </button>
                   </div>
@@ -930,8 +947,10 @@ function App() {
                   <div className="bg-gradient-to-r from-sky-600/10 to-blue-700/10 border border-sky-600/20 rounded-xl p-4">
                     <div className="text-center">
                       <p className="text-sm text-gray-300 mb-2">Хотите узнать точную стоимость?</p>
-                      <button className="bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
-                      >
+                      <button className="bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600
+                      text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
+                              onClick={() => document
+                                  .getElementById('обратная-связь')?.scrollIntoView({ behavior: 'smooth' })}>
                         Связаться с нами
                       </button>
                     </div>
