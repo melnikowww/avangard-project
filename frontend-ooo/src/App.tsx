@@ -166,7 +166,7 @@ function App() {
       description: 'Освоение матрицы по чертежам заказчика',
       color: 'from-blue-600 to-cyan-500',
       image: catalogImages.chert,
-      features: ['Экскюзивность матрицы', 'Возмещение стоимости матрицы'],
+      features: ['Эксклюзивность матрицы', 'Возмещение стоимости матрицы'],
       pdfPath: '/pdfs/chert.pdf'
     },
     { 
@@ -386,7 +386,7 @@ function App() {
       pdfPath: '/pdfs/torgovo.pdf'
     },
     { 
-      title: 'Для шкафов купе', 
+      title: 'Для шкофов купе', 
       description: 'Каркасы и направляющие для сборки встроенных и корпусных шкафов-купе.',
       color: 'from-gray-600 to-slate-500',
       image: catalogImages.shkafi,
@@ -439,7 +439,7 @@ function App() {
 
   const services = [
     { 
-      title: 'Переработки', 
+      title: 'Переработка', 
       description: 'Превращаем алюминиевый лом в высококачественное сырье с использованием передовых технологий', 
       icon: Recycle,
       features: ['Экологичный процесс', 'Высокая степень очистки', 'Контроль качества']
@@ -525,13 +525,12 @@ function App() {
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-sky-500 to-blue-600 group-hover:w-full transition-all duration-300"></span>
                 </a>
               ))}
-              <a
-                href="/ceiling"
-                className="relative text-gray-300 hover:text-white transition-all duration-300 group py-2"
-              >
-                Потолки
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-sky-500 to-blue-600 group-hover:w-full transition-all duration-300"></span>
-              </a>
+              <button>
+                <a href={"/ceiling"}
+                >
+                  Потолки
+                </a>
+              </button>
             </nav>
 
             <button
@@ -557,13 +556,6 @@ function App() {
                   {item}
                 </a>
               ))}
-              <a
-                href="/ceiling"
-                className="block text-gray-300 hover:text-white py-3 px-4 rounded-lg hover:bg-gray-800/50 transition-all duration-300"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Потолки
-              </a>
             </nav>
           </div>
         )}

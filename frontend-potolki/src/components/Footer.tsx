@@ -1,5 +1,5 @@
 import React from 'react';
-import { TrendingUp, Phone, Mail, MapPin } from 'lucide-react';
+import { TrendingUp, Phone, Mail, MapPin } from 'lucide-react'
 
 const Footer: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
@@ -57,6 +57,14 @@ const Footer: React.FC = () => {
                   className="text-gray-400 hover:text-yellow-400 transition-colors duration-200 text-sm"
                 >
                   Контакты
+                </button>
+              </li>
+              <li>
+                <button
+                    onClick={() => window.location.href = '/'}
+                    className="text-gray-400 hover:text-yellow-400 transition-colors duration-200 text-sm"
+                >
+                  Основной сайт
                 </button>
               </li>
             </ul>
