@@ -525,6 +525,13 @@ function App() {
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-sky-500 to-blue-600 group-hover:w-full transition-all duration-300"></span>
                 </a>
               ))}
+              <a
+                href="/ceiling"
+                className="relative text-gray-300 hover:text-white transition-all duration-300 group py-2"
+              >
+                Потолки
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-sky-500 to-blue-600 group-hover:w-full transition-all duration-300"></span>
+              </a>
             </nav>
 
             <button
@@ -550,6 +557,13 @@ function App() {
                   {item}
                 </a>
               ))}
+              <a
+                href="/ceiling"
+                className="block text-gray-300 hover:text-white py-3 px-4 rounded-lg hover:bg-gray-800/50 transition-all duration-300"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Потолки
+              </a>
             </nav>
           </div>
         )}
