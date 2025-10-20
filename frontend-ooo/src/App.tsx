@@ -22,10 +22,8 @@ import {
   Target,
   TrendingUp,
   CheckCircle,
-  Play
 } from 'lucide-react';
 import AboutSection from './components/AboutSection';
-import NewsSection from './components/NewsSection';
 import potolkiBg from './assets/potolki1.jpg';
 import potolkiProfile from './assets/potolki1.jpg';
 import obshestroy from './assets/obshestroy.jpg';
@@ -515,7 +513,7 @@ function App() {
             </div>
             
             <nav className="hidden lg:flex space-x-8">
-              {['Главная', 'Каталог', 'Скупка лома', 'О нас', 'Новости', 'Услуги', 'Контакты'].map((item) => (
+              {['Главная', 'Каталог', 'Скупка лома', 'О нас', 'Услуги', 'Контакты'].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase().replace(' ', '-')}`}
@@ -540,7 +538,7 @@ function App() {
         {isMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-xl border-b border-gray-800/50">
             <nav className="px-4 py-6 space-y-4">
-              {['Главная', 'Каталог', 'Скупка лома', 'О нас', 'Новости', 'Услуги', 'Контакты'].map((item) => (
+              {['Главная', 'Каталог', 'Скупка лома', 'О нас', 'Услуги', 'Контакты'].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase().replace(' ', '-')}`}
@@ -599,12 +597,12 @@ function App() {
                 <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
               
-              <button className="group relative overflow-hidden border-2 border-gray-600 hover:border-sky-500 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:bg-sky-500/10 backdrop-blur-sm">
-                <span className="flex items-center space-x-2">
-                  <Play className="h-5 w-5" />
-                  <span>Смотреть видео</span>
-                </span>
-              </button>
+              {/*<button className="group relative overflow-hidden border-2 border-gray-600 hover:border-sky-500 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:bg-sky-500/10 backdrop-blur-sm">*/}
+              {/*  <span className="flex items-center space-x-2">*/}
+              {/*    <Play className="h-5 w-5" />*/}
+              {/*    <span>Смотреть видео</span>*/}
+              {/*  </span>*/}
+              {/*</button>*/}
             </div>
 
             {/* Stats */}
@@ -822,24 +820,34 @@ function App() {
                   
                   {/* Кнопки действий */}
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <button className="group relative overflow-hidden bg-gradient-to-r from-sky-600 to-blue-700 text-white px-6 py-3 rounded-xl font-semibold text-base transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
-                      <a
-                        href={activeCatalogItemData.pdfPath}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="relative z-10 flex items-center space-x-2 text-white no-underline"
-                      >
-                        <span>Подробнее о продукте</span>
-                        <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-                      </a>
-                      <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </button>
-                    
-                    <button className="group relative overflow-hidden border-2 border-gray-600 hover:border-sky-500 text-white px-6 py-3 rounded-xl font-semibold text-base transition-all duration-300 hover:bg-sky-500/10 backdrop-blur-sm">
+
+                    {
+                      activeCatalogItemData.title != "По Вашим чертежам" &&
+                        <button className="group relative overflow-hidden bg-gradient-to-r from-sky-600 to-blue-700
+                        text-white px-6 py-3 rounded-xl font-semibold text-base transition-all duration-300 transform
+                        hover:scale-105 hover:shadow-2xl"
+                                onClick={() => window.open(activeCatalogItemData.pdfPath, "_blank")}
+                        >
+                          <div
+                              rel="noopener noreferrer"
+                              className="relative z-10 flex items-center space-x-2 text-white no-underline"
+                          >
+                            <span>Подробнее о продукте</span>
+                            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+                          </div>
+                          <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </button>
+                    }
+
+                    <button className="group relative overflow-hidden border-2 border-gray-600 hover:border-sky-500
+                    text-white px-6 py-3 rounded-xl font-semibold text-base transition-all duration-300
+                    hover:bg-sky-500/10 backdrop-blur-sm"
+                            onClick={() => document
+                                .getElementById('обратная-связь')?.scrollIntoView({ behavior: 'smooth' })}
+                    >
                       <span className="flex items-center space-x-2">
                         <Phone className="h-4 w-4" />
-                        <span onClick={() => document
-                            .getElementById('обратная-связь')?.scrollIntoView({ behavior: 'smooth' })}>
+                        <span>
                           Получить консультацию
                         </span>
                       </span>
@@ -970,7 +978,7 @@ function App() {
       <AboutSection />
 
       {/* News Section */}
-      <NewsSection />
+      {/*<NewsSection />*/}
 
       {/* Services Section */}
       <section id="услуги" className="py-8 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden">

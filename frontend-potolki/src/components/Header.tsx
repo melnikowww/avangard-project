@@ -56,6 +56,12 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
             >
               Контакты
             </button>
+            <button
+                onClick={() => window.location.href = "/"}
+                className="text-gray-300 hover:text-yellow-400 transition-colors duration-200 text-lg font-mediumele"
+            >
+              На основной сайт
+            </button>
           </nav>
 
           {/* Mobile Menu Button */}
