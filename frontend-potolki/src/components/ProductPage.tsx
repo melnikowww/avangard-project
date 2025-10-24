@@ -245,7 +245,7 @@ const ProductPage: React.FC<ProductPageProps> = ({ productId, onBack, onOrderCli
         name: 'Карниз ПК-14 облегченный',
         images: [
           cornices,
-          cornices
+          pk14_ch
         ],
         model3d: '/3d/pk14.glb',
         price: 'от 520 ₽/м',

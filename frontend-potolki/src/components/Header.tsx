@@ -39,12 +39,6 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
               Главная
             </button>
             <button 
-              onClick={() => scrollToSection('about')}
-              className="text-gray-300 hover:text-yellow-400 transition-colors duration-200 text-lg font-medium"
-            >
-              О нас
-            </button>
-            <button 
               onClick={() => scrollToSection('catalog')}
               className="text-gray-300 hover:text-yellow-400 transition-colors duration-200 text-lg font-medium"
             >
@@ -56,11 +50,15 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
             >
               Контакты
             </button>
-            <button
-                onClick={() => window.location.href = "/"}
-                className="text-gray-300 hover:text-yellow-400 transition-colors duration-200 text-lg font-mediumele"
+            <button className="group relative overflow-hidden bg-gradient-to-r from-sky-600 to-blue-700
+              hover:from-sky-500 hover:to-blue-600 text-white px-4 py-2 rounded-2xl font-semibold text-lg
+              transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-700/20"
+                    onClick={() => window.location.href = "/"}
             >
-              На основной сайт
+                <span className="relative z-10 flex items-center space-x-2">
+                  <span>ООО "Авангард"</span>
+                </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </button>
           </nav>
 
@@ -82,12 +80,6 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
                 className="text-gray-300 hover:text-yellow-400 transition-colors duration-200 py-3 text-left text-lg font-medium"
               >
                 Главная
-              </button>
-              <button 
-                onClick={() => scrollToSection('about')}
-                className="text-gray-300 hover:text-yellow-400 transition-colors duration-200 py-3 text-left text-lg font-medium"
-              >
-                О нас
               </button>
               <button 
                 onClick={() => scrollToSection('catalog')}

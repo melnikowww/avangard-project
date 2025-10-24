@@ -57,6 +57,8 @@ import radiator from './assets/radiator.jpg';
 import moskit from './assets/moskit.jpg';
 import zhaluzi from './assets/zhaluzi.jpg';
 
+import {YMaps, Map, Placemark} from '@pbe/react-yandex-maps';
+
 // Импорты изображений для каталога (замените на фактические пути к вашим изображениям)
 const catalogImages = {
   chert: chert, // Замените на фактический путь
@@ -112,11 +114,19 @@ function App() {
 
   // Цены на алюминиевый лом (руб/кг)
   const scrapPrices = {
-    'profile-clean': 183,
-    'sheet': 175,
-    'chips': 120,
-    'radiators': 160,
-    'cans': 140
+    'profile-clean': 185, // чистый профиль
+    'sheet': 175, // ал. лист
+    'chips': 120, // ал. стружка
+    'radiators': 160, // ал. радиаторы
+    'cans': 140, // ал. банки
+    'food': 190, // пищевой
+    'mix': 130, // смесь
+    'amg': 140, // производственные отходы
+    'disks': 145, // диски
+    'electrotech': 195, // Электротех
+    'plates': 148, // номера
+    'typograph_sheets': 175, // типографические листы
+    'chips_d16': 90 // стружка д16/16т
   };
 
   useEffect(() => {
@@ -213,7 +223,7 @@ function App() {
       color: 'from-yellow-600 to-orange-500',
       image: catalogImages.reklamny,
       features: ['Легкость конструкции', 'Погодостойкость', 'Простая сборка', 'Универсальность'],
-      pdfPath: '/pdfs/reklamny.pdf'
+      pdfPath: '/pdfs/reklami.pdf'
     },
     { 
       title: 'Ламели', 
@@ -256,7 +266,7 @@ function App() {
       pdfPath: '/pdfs/solar.pdf'
     },
     { 
-      title: 'Для конвееров и станков', 
+      title: 'Для конвейеров и станков',
       description: 'Конструкционные компоненты для сборки рам станков, конвейерных линий и производственного оборудования.',
       color: 'from-gray-600 to-slate-500',
       image: catalogImages.stanki,
@@ -917,13 +927,24 @@ function App() {
                     <select 
                       value={selectedScrapType}
                       onChange={handleScrapTypeChange}
-                      className="w-full bg-gray-700/50 border border-gray-600/50 rounded-xl px-4 py-4 focus:ring-2 focus:ring-emerald-600 focus:border-transparent transition-all duration-300 text-white"
+                      className="w-full bg-gray-700/50 border border-gray-600/50 rounded-xl px-4 py-4 focus:ring-2
+                      focus:ring-emerald-600 focus:border-transparent transition-all duration-300 text-white"
                     >
                       <option value="profile-clean">Алюминиевый профиль (чистый) - {scrapPrices['profile-clean']} ₽/кг</option>
                       <option value="sheet">Алюминиевый лист - {scrapPrices.sheet} ₽/кг</option>
+                      <option value="typograph_sheets">
+                        Типографические листы - {scrapPrices.typograph_sheets} ₽/кг
+                      </option>
                       <option value="chips">Алюминиевая стружка - {scrapPrices.chips} ₽/кг</option>
+                      <option value="chips_d16">Стружка д16/16т - {scrapPrices.chips_d16} ₽/кг</option>
                       <option value="radiators">Радиаторы алюминиевые - {scrapPrices.radiators} ₽/кг</option>
                       <option value="cans">Банки алюминиевые - {scrapPrices.cans} ₽/кг</option>
+                      <option value="food">Пищевой алюминий - {scrapPrices.food} ₽/кг</option>
+                      <option value="mix">Смесь - {scrapPrices.mix} ₽/кг</option>
+                      <option value="amg">Производственные отходы - {scrapPrices.amg} ₽/кг</option>
+                      <option value="disks">Диски - {scrapPrices.disks} ₽/кг</option>
+                      <option value="electrotech">Электротехнический алюминий - {scrapPrices.electrotech} ₽/кг</option>
+                      <option value="plates">Номера - {scrapPrices.plates} ₽/кг</option>
                     </select>
                   </div>
                   
@@ -1212,20 +1233,26 @@ function App() {
             </div>
             
             <div className="relative">
-              <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-3xl h-full min-h-[600px] flex flex-col items-center justify-center p-8">
-                <div className="text-center space-y-6">
-                  <div className="relative">
-                    <MapPin className="h-24 w-24 text-sky-500 mx-auto" />
-                    <div className="absolute inset-0 bg-sky-500 rounded-full blur-2xl opacity-20"></div>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-white mb-2">Интерактивная карта</h3>
-                    <p className="text-gray-400">Карта с точным расположением нашего производства будет загружена</p>
-                  </div>
-                  <button className="bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105">
-                    Построить маршрут
-                  </button>
-                </div>
+              <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border
+              border-gray-700/50 rounded-3xl h-full min-h-[600px] flex flex-col items-center justify-center overflow-hidden">
+                <YMaps>
+                  <Map
+                      defaultState={{center: [59.888848, 30.482479], zoom: 17}}
+                      className={"h-full w-full"}
+                  >
+                    <Placemark
+                        key={`office`}
+                        geometry={[59.888848, 30.482479]}
+                        options={{
+                          preset: 'islands#darkBlueIcon',
+
+                        }}
+                        properties={{
+                          iconCaption: 'пер. Челиева, 17',
+                        }}
+                    />
+                  </Map>
+                </YMaps>
               </div>
             </div>
           </div>

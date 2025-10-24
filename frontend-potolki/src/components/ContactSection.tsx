@@ -1,5 +1,6 @@
 import React from 'react';
 import { MapPin, Phone, Mail, Clock, ExternalLink } from 'lucide-react';
+import {YMaps, Map, Placemark} from '@pbe/react-yandex-maps';
 
 const ContactSection: React.FC = () => {
   const contacts = [
@@ -67,38 +68,24 @@ const ContactSection: React.FC = () => {
 
         {/* Map Section */}
         <div className="bg-[#3A3A3A] rounded-lg overflow-hidden shadow-2xl">
-          <div className="relative h-96 bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
-            {/* Map Placeholder */}
-            <div className="text-center">
-              <MapPin className="w-16 h-16 text-yellow-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-white mb-2">Интерактивная карта</h3>
-              <p className="text-gray-300 mb-4">г. Санкт-Петербург, пер. Челиева, 17, офис 208</p>
-              <button className="bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-2 rounded-lg font-semibold transition-all duration-200 hover:scale-105 flex items-center space-x-2 mx-auto group">
-                <span>Открыть в картах</span>
-                <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </div>
+          <YMaps>
+            <Map
+                defaultState={{center: [59.888848, 30.482479], zoom: 17}}
+                className="h-[400px] overflow-hidden"
+            >
+              <Placemark
+                  key={`office`}
+                  geometry={[59.888848, 30.482479]}
+                  options={{
+                    preset: 'islands#darkBlueIcon',
 
-            {/* Decorative elements to simulate map */}
-            <div className="absolute inset-0 opacity-20">
-              <div className="absolute top-10 left-10 w-32 h-24 bg-yellow-400/30 rounded-lg"></div>
-              <div className="absolute top-20 right-16 w-28 h-20 bg-blue-400/30 rounded-lg"></div>
-              <div className="absolute bottom-16 left-20 w-36 h-16 bg-green-400/30 rounded-lg"></div>
-              <div className="absolute bottom-10 right-12 w-24 h-28 bg-purple-400/30 rounded-lg"></div>
-              
-              {/* Roads simulation */}
-              <div className="absolute top-0 left-1/3 w-1 h-full bg-gray-400/40"></div>
-              <div className="absolute left-0 top-1/2 w-full h-1 bg-gray-400/40"></div>
-            </div>
-
-            {/* Location Pin */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <div className="relative">
-                <div className="w-6 h-6 bg-yellow-400 rounded-full animate-pulse"></div>
-                <div className="absolute -top-2 -left-2 w-10 h-10 border-2 border-yellow-400 rounded-full animate-ping"></div>
-              </div>
-            </div>
-          </div>
+                  }}
+                  properties={{
+                    iconCaption: 'пер. Челиева, 17, офис 208',
+                  }}
+              />
+            </Map>
+          </YMaps>
         </div>
       </div>
     </section>

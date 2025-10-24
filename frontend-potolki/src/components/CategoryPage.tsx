@@ -190,10 +190,11 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
         },
         {
           id: 'cor-2',
-          name: 'Карниз ПК-14 облегченный',
+          name: 'Карниз ПК-14 облегченныйй',
           images: [
             cornices,
-            cornices
+            pk14_ch,
+            'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=400'
           ],
           price: 'от 520 ₽/м',
           description: 'Двухрядный карниз для тюля и штор',
