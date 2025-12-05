@@ -1,28 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import {ceilingSlide} from "../assets/images.ts";
 
 const HeroSection: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
     {
-      title: "Высокое качество",
+      title: "ДЛЯ НАТЯЖНЫХ ПОТОЛКОВ",
       subtitle: "Алюминиевые профили",
-      description: "Высококачественные профили для долговечных натяжных потолков",
+      description: "Высококачественные карнизы, багеты, стеновые, комплектующие и т.д.",
+      image: ceilingSlide,
       video: "https://xbawwaakkvciyofymepf.supabase.co/storage/v1/object/public/slider-video/Hailuo_Video_Wide%20shot%20modern%20loft%20(exposed_396833602164224002.mp4",
     },
     {
-      title: "Оптовое производство",
-      subtitle: "Оптовые цены",
-      description: "Чем больше покупаете, тем больше экономите",
+      title: "ВЕСЬ ПРОФИЛЬ",
+      subtitle: "от ООО Авангард",
+      description: "",
+      // image: тут ссылка на изображение,
+      href: "/",
       video: "https://xbawwaakkvciyofymepf.supabase.co/storage/v1/object/public/slider-video/Hailuo_Video_CINEMATIC%20SHOT%20SEQUENCE__%201%20E_396470788518010889.mp4"
     },
-    {
-      title: "Широкий ассортимент",
-      subtitle: "Для любых задач",
-      description: "Стандартные, световые, контурные и карнизные профили",
-      video: "https://xbawwaakkvciyofymepf.supabase.co/storage/v1/object/public/slider-video/Hailuo_Video_Wide%20shot%20modern%20loft%20(exposed_396833602164224002.mp4"
-    }
+    // {
+    //   title: "Оптовое производство",
+    //   subtitle: "Оптовые цены",
+    //   description: "Чем больше покупаете, тем больше экономите",
+    //   video: "https://xbawwaakkvciyofymepf.supabase.co/storage/v1/object/public/slider-video/Hailuo_Video_CINEMATIC%20SHOT%20SEQUENCE__%201%20E_396470788518010889.mp4"
+    // },
+    // {
+    //   title: "Широкий ассортимент",
+    //   subtitle: "Для любых задач",
+    //   description: "Стандартные, световые, контурные и карнизные профили",
+    //   video: "https://xbawwaakkvciyofymepf.supabase.co/storage/v1/object/public/slider-video/Hailuo_Video_Wide%20shot%20modern%20loft%20(exposed_396833602164224002.mp4"
+    // }
   ];
 
   useEffect(() => {
@@ -50,16 +60,19 @@ const HeroSection: React.FC = () => {
       {/* Background Video for current slide */}
       {slides[currentSlide].video && (
         <div className="absolute inset-0 z-0">
-          <video
-            key={currentSlide}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover opacity-30"
-          >
-            <source src={slides[currentSlide].video} type="video/mp4" />
-          </video>
+          {slides[currentSlide].image ?
+              <img src={slides[currentSlide].image} alt={slides[currentSlide].subtitle}/> :
+              <video
+                  key={currentSlide}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover opacity-30"
+              >
+                <source src={slides[currentSlide].video} type="video/mp4" />
+              </video>
+          }
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
       )}
@@ -85,7 +98,8 @@ const HeroSection: React.FC = () => {
               </p>
               
               <button
-                onClick={scrollToCatalog}
+                onClick={slides[currentSlide].href ? () => window.location.href = slides[currentSlide].href :
+                    scrollToCatalog}
                 className="bg-yellow-400 hover:bg-yellow-500 text-black px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105 hover:shadow-lg flex items-center space-x-2 group"
               >
                 <span>Посмотреть примеры</span>

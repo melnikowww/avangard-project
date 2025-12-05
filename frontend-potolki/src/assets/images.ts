@@ -23,11 +23,12 @@ import pk12_ch from '../assets/ch/pk12 ch.jpg';
 import am1 from '../assets/AM1.jpg';
 import furnitures from '../assets/furnitures.jpg';
 import light_lines from '../assets/light-lines.jpg';
+import ceilingSlide from '../assets/ceiling.jpg'
 
 
 export {
     bp40, bp40_ch, stenvoy, sten_1, sten_2, sten_3, razdelitel,
     razdelitel_ch, universal, universal_ch, potoloch, potoloch_ch,
     z, z_ch, b2, pk14_ch, cornices, pk15, pk15_ch, pk12, pk12_ch,
-    am1, furnitures, logo, light_lines
+    am1, furnitures, logo, light_lines, ceilingSlide
 }

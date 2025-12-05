@@ -100,6 +100,7 @@ const catalogImages = {
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isPrivacyChecked, setIsPrivacyChecked] = useState(false)
   const [scrollY, setScrollY] = useState(0);
   // const [activeSection, setActiveSection] = useState('главная');
   const [activeCatalogItem, setActiveCatalogItem] = useState(0);
@@ -1077,7 +1078,7 @@ function App() {
       </section>
 
       {/* Contact Form Section */}
-      <section id="обратная-связь" className="relative py-20 bg-gradient-to-b from-black to-gray-900">
+      <section id="обратная-связь" className="relative py-20 bg-gradient-to-b from-black to-gray-900" hidden={true}>
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-sky-600/10 to-blue-700/10 backdrop-blur-sm border border-sky-600/20 rounded-full px-6 py-2 text-sm font-medium text-sky-400 mb-6">
@@ -1136,9 +1137,25 @@ function App() {
                 placeholder="Расскажите о ваших потребностях, объемах, сроках..."
               />
             </div>
+            <div style={{alignItems: "end"}}>
+              <input type={"checkbox"} id={'conf'} style={{padding: 0}}
+                     onChange={e => setIsPrivacyChecked(e.target.checked)}
+              />
+              <label htmlFor={"conf"} className="text-gray-300 text-sm font-medium mb-2 ml-2">
+                Я согласен с <a
+                  href={"/about"}
+                  target={"_blank"}
+                  style={{color: "#0ea5e9", textDecoration: "underline"}}>
+                политикой конфиденциальности
+              </a>
+              </label>
+            </div>
             <button
               type="submit"
-              className="mt-8 w-full group relative overflow-hidden bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600 text-white py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-700/20"
+              disabled={!isPrivacyChecked}
+              className="mt-8 w-full group relative overflow-hidden bg-gradient-to-r from-sky-600 to-blue-700
+              hover:from-sky-500 hover:to-blue-600 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:none
+              text-white py-4 rounded-xl font-semibold text-lg transition-all duration-300"
             >
               <span className="relative z-10 flex items-center justify-center space-x-2">
                 <span>Отправить сообщение</span>

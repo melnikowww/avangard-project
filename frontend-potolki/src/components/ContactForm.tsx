@@ -10,6 +10,7 @@ const ContactForm: React.FC = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isPrivacyChecked, setIsPrivacyChecked] = useState(false)
   const [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -147,15 +148,31 @@ const ContactForm: React.FC = () => {
                       onChange={handleChange}
                       placeholder="Опишите ваш запрос..."
                       rows={4}
-                      className="w-full pl-12 pr-4 py-3 bg-[#3A3A3A] border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-200 resize-none"
+                      className="w-full pl-12 pr-4 py-3 bg-[#3A3A3A] border border-gray-700 rounded-lg text-white
+                      placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400
+                      focus:border-transparent transition-all duration-200 resize-none"
                     />
                   </div>
+                </div>
+
+                <div style={{alignItems: "end"}}>
+                  <input type={"checkbox"} id={'conf'} style={{padding: 0}}
+                         onChange={e => setIsPrivacyChecked(e.target.checked)}
+                  />
+                  <label htmlFor={"conf"} className="text-gray-300 text-sm font-medium mb-2 ml-2">
+                    Я согласен с <a
+                      href={"/about"}
+                      target={"_blank"}
+                      style={{color: "#0ea5e9", textDecoration: "underline"}}>
+                    политикой конфиденциальности
+                  </a>
+                  </label>
                 </div>
 
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  disabled={!isFormValid || isSubmitting}
+                  disabled={!isFormValid || isSubmitting || !isPrivacyChecked}
                   className="w-full bg-yellow-400 hover:bg-yellow-500 disabled:bg-gray-600 disabled:cursor-not-allowed text-black font-semibold py-3 px-6 rounded-lg transition-all duration-200 hover:scale-[1.02] hover:shadow-lg flex items-center justify-center space-x-2 group"
                 >
                   {isSubmitting ? (

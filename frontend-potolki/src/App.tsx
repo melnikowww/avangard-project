@@ -211,7 +211,7 @@ function App() {
       </section>
       <CatalogSection onCategoryClick={handleCategoryClick} />
       {/* <AboutSection /> */}
-      <ContactForm />
+      {/*<ContactForm />*/}
       <ContactSection />
       <Footer />
     </div>
