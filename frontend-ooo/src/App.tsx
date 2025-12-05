@@ -980,7 +980,7 @@ function App() {
                       <button className="bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600
                       text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
                               onClick={() => document
-                                  .getElementById('обратная-связь')?.scrollIntoView({ behavior: 'smooth' })}>
+                                  .getElementById('контакты')?.scrollIntoView({ behavior: 'smooth' })}>
                         Связаться с нами
                       </button>
                     </div>
