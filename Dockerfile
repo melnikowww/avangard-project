@@ -17,7 +17,7 @@ FROM eclipse-temurin:21-jdk AS backend-build
 WORKDIR /app
 COPY . .
 
-COPY --from=ceiling-build /app/dist ./src/main/resources/static/potolki
+COPY --from=ceiling-build /app/dist ./src/main/resources/static/ceiling
 COPY --from=main-build /app/dist ./src/main/resources/static
 
 COPY ../frontend-potolki/public/3d ./src/main/resources/static/3d

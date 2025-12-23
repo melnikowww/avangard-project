@@ -1343,11 +1343,19 @@ function App() {
                 &copy; 2025 ООО "Авангард". Все права защищены.
               </p>
               <div className="flex space-x-6 text-sm">
-                <a href="#" className="text-gray-400 hover:text-sky-500 transition-colors duration-300">
+                <a onClick={() => window.open("/politika.pdf", "_blank")}
+                   className="text-gray-400 hover:text-sky-500 transition-colors duration-300">
                   Политика конфиденциальности
                 </a>
-                <a href="#" className="text-gray-400 hover:text-sky-500 transition-colors duration-300">
-                  Условия использования
+
+                <a onClick={() => window.open("/soglasie-na-obrabotky.pdf", "_blank")}
+                   className="text-gray-400 hover:text-sky-500 transition-colors duration-300">
+                  Согласие на обработку персональных данных
+                </a>
+
+                <a onClick={() => window.open("/cookie.pdf", "_blank")}
+                   className="text-gray-400 hover:text-sky-500 transition-colors duration-300">
+                  Политика файлов cookies
                 </a>
               </div>
             </div>

@@ -9,7 +9,7 @@ import ContactForm from './components/ContactForm';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import ModelViewer from './components/ModelViewer';
-import {b2} from "./assets/images.ts";
+import {b2} from "../public/images.ts";
 
 function App() {
   const [currentView, setCurrentView] = useState<'home' | 'category' | 'product'>('home');

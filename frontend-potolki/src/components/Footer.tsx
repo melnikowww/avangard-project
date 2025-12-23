@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-[#1A1A1A] border-t border-gray-800">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
@@ -67,6 +67,7 @@ const Footer: React.FC = () => {
                   Основной сайт
                 </button>
               </li>
+
             </ul>
           </div>
 
@@ -79,6 +80,31 @@ const Footer: React.FC = () => {
               <li>Световые линии</li>
               <li>Контурные профили</li>
             </ul>
+          </div>
+
+          {/* Politics */}
+          <div>
+            <h3 className="text-white font-semibold mb-4">Соглашения</h3>
+            <div className="space-y-3">
+              <button
+                  onClick={() => window.open("/soglasie-na-obrabotky.pdf", "_blank")}
+                  className="text-gray-400 hover:text-yellow-400 transition-colors duration-200 text-sm"
+              >
+                Обработка персональных данных
+              </button>
+              <button
+                  onClick={() => window.open("/politika.pdf", "_blank")}
+                  className="text-gray-400 hover:text-yellow-400 transition-colors duration-200 text-sm"
+              >
+                Политика конфиденциальности
+              </button>
+              <button
+                  onClick={() => window.open("/cookie.pdf", "_blank")}
+                  className="text-gray-400 hover:text-yellow-400 transition-colors duration-200 text-sm"
+              >
+                Политика файлов cookies
+              </button>
+            </div>
           </div>
 
           {/* Contacts */}
@@ -102,6 +128,7 @@ const Footer: React.FC = () => {
               </div>
             </div>
           </div>
+
         </div>
 
         {/* Bottom Bar */}
@@ -110,12 +137,15 @@ const Footer: React.FC = () => {
             <div className="text-gray-400 text-sm mb-4 md:mb-0">
               © 2025 Авангард. Все права защищены.
             </div>
+
             <div className="text-gray-400 text-sm">
               Производство алюминиевых профилей для натяжных потолков
             </div>
           </div>
         </div>
       </div>
+
+
     </footer>
   );
 };

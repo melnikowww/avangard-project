@@ -27,7 +27,7 @@ import {
   am1,
   light_lines,
   furnitures,
-} from '../assets/images.ts'
+} from '../../public/images.ts'
 
 interface Product {
   id: string;
