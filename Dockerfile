@@ -1,10 +1,3 @@
-FROM node:20-alpine AS ceiling-build
-WORKDIR /app
-COPY ../frontend-potolki/package*.json ./
-RUN npm install
-COPY ../frontend-potolki .
-RUN npm run build
-
 FROM node:20-alpine AS main-build
 WORKDIR /app
 COPY ../frontend-ooo/package*.json ./
@@ -17,10 +10,9 @@ FROM eclipse-temurin:21-jdk AS backend-build
 WORKDIR /app
 COPY . .
 
-COPY --from=ceiling-build /app/dist ./src/main/resources/static/ceiling
 COPY --from=main-build /app/dist ./src/main/resources/static
 
-COPY ../frontend-potolki/public/3d ./src/main/resources/static/3d
+#COPY ../frontend-potolki/public/3d ./src/main/resources/static/3d
 
 RUN chmod +x mvnw
 

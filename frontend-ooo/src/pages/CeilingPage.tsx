@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import Header from './components/Header';
-import HeroSection from './components/HeroSection';
-// import AboutSection from './components/AboutSection';
-import CatalogSection from './components/CatalogSection';
-import CategoryPage from './components/CategoryPage';
-import ProductPage from './components/ProductPage';
-import ContactForm from './components/ContactForm';
-import ContactSection from './components/ContactSection';
-import Footer from './components/Footer';
-import ModelViewer from './components/ModelViewer';
-import {b2} from "../public/images.ts";
+import Header from '../components/ceiling/Header';
+import HeroSection from '../components/ceiling/HeroSection';
+// import AboutSection from './components/ceiling/AboutSection';
+import CatalogSection from '../components/ceiling/CatalogSection';
+import CategoryPage from '../components/ceiling/CategoryPage';
+import ProductPage from '../components/ceiling/ProductPage';
+// import ContactForm from '../components/ceiling/ContactForm';
+import ContactSection from '../components/ceiling/ContactSection';
+import Footer from '../components/ceiling/Footer';
+import ModelViewer from '../components/ceiling/ModelViewer';
+import {b2} from "../assets/images.ts";
 
 function App() {
   const [currentView, setCurrentView] = useState<'home' | 'category' | 'product'>('home');

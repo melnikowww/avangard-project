@@ -1,8 +1,8 @@
 import React from 'react';
 import { Home, Frame, Layers, ArrowRight } from 'lucide-react';
-import bp40 from '../assets/bp40.jpg';
-import cornices from '../assets/cornices.jpg';
-import furnitures from '../assets/furnitures.jpg';
+import bp40 from '@/assets/bp40.jpg';
+import cornices from '@/assets/cornices.jpg';
+import furnitures from '@/assets/furnitures.jpg';
 
 interface CatalogSectionProps {
   onCategoryClick: (categoryId: string) => void;

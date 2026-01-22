@@ -23,39 +23,39 @@ import {
   TrendingUp,
   CheckCircle,
 } from 'lucide-react';
-import AboutSection from './components/AboutSection';
-import potolkiBg from './assets/potolki1.jpg';
-import potolkiProfile from './assets/potolki1.jpg';
-import obshestroy from './assets/obshestroy.jpg';
-import konvektory from './assets/konvektory.jpg';
-import konstrukt from './assets/konstrukt.jpg';
-import gryaz from './assets/gryaz.jpg';
-import lameli from './assets/lameli.jpg';
-import chert from './assets/chert.jpg';
-import logo1 from './assets/logo1.png';
-import dekor from './assets/dekor.jpg';
-import oknadveri from './assets/oknadveri.jpg';
-import vent from './assets/vent.jpg';
-import sun from './assets/sun.jpg';
-import dorogi from './assets/dorogi.jpg';
-import santeh from './assets/santeh.jpg';
-import fasad from './assets/fasad.jpg';
-import ventfasad from './assets/ventfasad.jpg';
-import lodki from './assets/lodki.jpg';
-import pool from './assets/pool.jpg';
-import pergol from './assets/pergol.jpg';
-import lestnici from './assets/lestnici.jpg';
-import dush from './assets/dush.jpg';
-import lift from './assets/lift.jpg';
-import porogi from './assets/borti.jpg';
-import auto from './assets/auto.jpg';
-import borti from './assets/borti.jpg';
-import shkafi from './assets/shkafi.jpg';
-import teplici from './assets/teplici.jpg';
-import electro from './assets/electro.jpg';
-import radiator from './assets/radiator.jpg';
-import moskit from './assets/moskit.jpg';
-import zhaluzi from './assets/zhaluzi.jpg';
+import AboutSection from '../components/avangard/AboutSection.tsx';
+import potolkiBg from '../assets/potolki1.jpg';
+import potolkiProfile from '../assets/potolki1.jpg';
+import obshestroy from '../assets/obshestroy.jpg';
+import konvektory from '../assets/konvektory.jpg';
+import konstrukt from '../assets/konstrukt.jpg';
+import gryaz from '../assets/gryaz.jpg';
+import lameli from '../assets/lameli.jpg';
+import chert from '../assets/chert.jpg';
+import logo1 from '../assets/logo1.png';
+import dekor from '../assets/dekor.jpg';
+import oknadveri from '../assets/oknadveri.jpg';
+import vent from '../assets/vent.jpg';
+import sun from '../assets/sun.jpg';
+import dorogi from '../assets/dorogi.jpg';
+import santeh from '../assets/santeh.jpg';
+import fasad from '../assets/fasad.jpg';
+import ventfasad from '../assets/ventfasad.jpg';
+import lodki from '../assets/lodki.jpg';
+import pool from '../assets/pool.jpg';
+import pergol from '../assets/pergol.jpg';
+import lestnici from '../assets/lestnici.jpg';
+import dush from '../assets/dush.jpg';
+import lift from '../assets/lift.jpg';
+import porogi from '../assets/borti.jpg';
+import auto from '../assets/auto.jpg';
+import borti from '../assets/borti.jpg';
+import shkafi from '../assets/shkafi.jpg';
+import teplici from '../assets/teplici.jpg';
+import electro from '../assets/electro.jpg';
+import radiator from '../assets/radiator.jpg';
+import moskit from '../assets/moskit.jpg';
+import zhaluzi from '../assets/zhaluzi.jpg';
 
 import {YMaps, Map, Placemark} from '@pbe/react-yandex-maps';
 
@@ -98,7 +98,7 @@ const catalogImages = {
   moskit: moskit,
 };
 
-function App() {
+function AvangardPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isPrivacyChecked, setIsPrivacyChecked] = useState(false)
   const [scrollY, setScrollY] = useState(0);
@@ -1366,4 +1366,4 @@ function App() {
   );
 }
 
-export default App;
+export default AvangardPage;
