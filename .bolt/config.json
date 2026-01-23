@@ -1,0 +1,10 @@
+{
+  "root": "frontend",
+  "build": "npm run build",
+  "dev": "npm run dev",
+  "launch": {
+    "command": "npm run dev",
+    "cwd": "frontend",
+    "port": 5173
+  }
+}
