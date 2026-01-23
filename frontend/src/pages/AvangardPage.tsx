@@ -980,7 +980,7 @@ function AvangardPage() {
                       <button className="bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600
                       text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
                               onClick={() => document
-                                  .getElementById('контакты')?.scrollIntoView({ behavior: 'smooth' })}>
+                                  .getElementById('обратная-связь')?.scrollIntoView({ behavior: 'smooth' })}>
                         Связаться с нами
                       </button>
                     </div>
@@ -1078,7 +1078,7 @@ function AvangardPage() {
       </section>
 
       {/* Contact Form Section */}
-      <section id="обратная-связь" className="relative py-20 bg-gradient-to-b from-black to-gray-900" hidden={true}>
+      <section id="обратная-связь" className="relative py-20 bg-gradient-to-b from-black to-gray-900" hidden={false}>
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-sky-600/10 to-blue-700/10 backdrop-blur-sm border border-sky-600/20 rounded-full px-6 py-2 text-sm font-medium text-sky-400 mb-6">
@@ -1143,7 +1143,7 @@ function AvangardPage() {
               />
               <label htmlFor={"conf"} className="text-gray-300 text-sm font-medium mb-2 ml-2">
                 Я согласен с <a
-                  href={"/about"}
+                  href={"/politika.pdf"}
                   target={"_blank"}
                   style={{color: "#0ea5e9", textDecoration: "underline"}}>
                 политикой конфиденциальности

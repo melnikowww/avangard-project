@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Header from '../components/ceiling/Header';
 import HeroSection from '../components/ceiling/HeroSection';
-// import AboutSection from './components/ceiling/AboutSection';
+// import AboutSection from '../components/ceiling/AboutSection';
 import CatalogSection from '../components/ceiling/CatalogSection';
 import CategoryPage from '../components/ceiling/CategoryPage';
 import ProductPage from '../components/ceiling/ProductPage';
-// import ContactForm from '../components/ceiling/ContactForm';
+import ContactForm from '../components/ceiling/ContactForm';
 import ContactSection from '../components/ceiling/ContactSection';
 import Footer from '../components/ceiling/Footer';
 import ModelViewer from '../components/ceiling/ModelViewer';
@@ -210,8 +210,7 @@ function App() {
         </div>
       </section>
       <CatalogSection onCategoryClick={handleCategoryClick} />
-      {/* <AboutSection /> */}
-      {/*<ContactForm />*/}
+      <ContactForm />
       <ContactSection />
       <Footer />
     </div>

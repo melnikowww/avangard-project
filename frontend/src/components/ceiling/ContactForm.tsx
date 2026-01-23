@@ -36,8 +36,6 @@ const ContactForm: React.FC = () => {
       await axios.post(
           "/new_contact_roof",
           contactData);
-
-      console.log('Contact form submitted successfully:', contactData);
       
       setIsSubmitting(false);
       setIsSubmitted(true);
@@ -161,7 +159,7 @@ const ContactForm: React.FC = () => {
                   />
                   <label htmlFor={"conf"} className="text-gray-300 text-sm font-medium mb-2 ml-2">
                     Я согласен с <a
-                      href={"/about"}
+                      href={"/politika.pdf"}
                       target={"_blank"}
                       style={{color: "#0ea5e9", textDecoration: "underline"}}>
                     политикой конфиденциальности

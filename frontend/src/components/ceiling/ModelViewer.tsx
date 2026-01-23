@@ -178,14 +178,12 @@ const ModelViewer: React.FC<ModelViewerProps> = ({
         // Initialize rotation state
         rotationState.current = { x: 0, y: 0 };
       },
-      (progress) => {
-        // Loading progress
-        console.log('Loading progress:', (progress.loaded / progress.total) * 100 + '%');
-      },
       (error) => {
-        console.error('Error loading model:', error);
-        setError('Ошибка загрузки 3D модели');
-        setIsLoading(false);
+        if (error.type === "error") {
+          console.error('Error loading model:', error);
+          setError('Ошибка загрузки 3D модели');
+          setIsLoading(false);
+        }
       }
     );
 
